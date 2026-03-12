@@ -69,6 +69,10 @@
       "description": "Switch to a specific commit (detached HEAD state)."
     },
     {
+      "command": "git branch",
+      "description": "List all branches in the current repository."
+    },
+    {
       "command": "git branch <branch-name>",
       "description": "Create a new branch."
     },

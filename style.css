@@ -5,7 +5,9 @@
     --accent-border: #eaecef;
     --hover-bg: #f6f8fa;
     --code-bg: #f9f9f9;
+    --card-bg: #ffffff;
 
+    /* Syntax Highlighting Colors */
     --color-git: #d73a49;
     --color-command: #005cc5;
     --color-flag: #22863a;
@@ -14,6 +16,24 @@
     --color-param: #032f62;
 
     --transition-speed: 0.3s;
+}
+
+[data-theme='dark'] {
+    --bg-color: #0d1117;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --accent-border: #30363d;
+    --hover-bg: #161b22;
+    --code-bg: #161b22;
+    --card-bg: #0d1117;
+
+    /* Dark Syntax Highlighting */
+    --color-git: #ff7b72;
+    --color-command: #79c0ff;
+    --color-flag: #7ee787;
+    --color-placeholder: #ffa657;
+    --color-string: #d2a8ff;
+    --color-param: #a5d6ff;
 }
 
 * {
@@ -30,6 +50,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .container {
@@ -39,7 +60,7 @@ body {
 }
 
 .header {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     text-align: left;
 }
 
@@ -49,7 +70,7 @@ h1 {
     letter-spacing: -2px;
     margin-bottom: 0.75rem;
     line-height: 1.1;
-    color: #1a1f23;
+    color: var(--text-primary);
 }
 
 .subtitle {
@@ -57,33 +78,89 @@ h1 {
     color: var(--text-secondary);
     font-weight: 400;
     letter-spacing: 0.1px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.intro-card {
+    background: var(--card-bg);
+    border: 1px solid var(--accent-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.intro-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.intro-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.search-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 .search-container {
-    width: 100%;
+    flex: 1;
 }
 
 #search-input {
     width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
     font-family: 'Inter', sans-serif;
     border: 1px solid var(--accent-border);
     border-radius: 12px;
-    background: #fff;
+    background: var(--bg-color);
     color: var(--text-primary);
     transition: all var(--transition-speed) ease;
     outline: none;
 }
 
+.secondary-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    background: var(--text-primary);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
 #search-input:focus {
-    border-color: #000;
+    border-color: var(--text-primary);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 #search-input::placeholder {
-    color: #bbb;
+    color: var(--text-secondary);
+    opacity: 0.6;
 }
 
 .commands-grid {
@@ -101,7 +178,7 @@ h1 {
 }
 
 .command-card {
-    background: #fff;
+    background: var(--card-bg);
     border: 1px solid var(--accent-border);
     padding: 2rem;
     border-radius: 12px;
@@ -116,14 +193,14 @@ h1 {
 }
 
 .command-card:hover {
-    border-color: #24292e;
+    border-color: var(--text-primary);
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .command-card p {
     font-size: 1.05rem;
-    color: #444;
+    color: var(--text-primary);
     font-weight: 500;
     margin-bottom: 1.25rem;
     letter-spacing: -0.2px;
@@ -133,17 +210,13 @@ h1 {
     background: var(--code-bg);
     padding: 1rem 1.25rem;
     border-radius: 8px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--accent-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     position: relative;
     transition: border-color var(--transition-speed);
-}
-
-.command-card .code-container:hover {
-    border-color: #ddd;
 }
 
 .command-card code {
@@ -155,6 +228,7 @@ h1 {
     flex: 1;
     min-width: 0;
     padding-right: 1rem;
+    color: var(--text-primary);
 }
 
 .command-card code::-webkit-scrollbar {
@@ -178,8 +252,8 @@ h1 {
 }
 
 .copy-btn:hover {
-    background: #eee;
-    color: #000;
+    background: var(--hover-bg);
+    color: var(--text-primary);
     opacity: 1;
 }
 
@@ -235,6 +309,48 @@ h1 {
     }
 }
 
+.footer {
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--accent-border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+#theme-toggle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--text-primary);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2);
+}
+
 @media (max-width: 600px) {
     h1 {
         font-size: 2.5rem;
@@ -244,17 +360,25 @@ h1 {
         padding: 3.5rem 1.25rem;
     }
 
+    .intro-section {
+        grid-template-columns: 1fr;
+    }
+
+    .search-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .secondary-btn {
+        justify-content: center;
+    }
+
     .command-card {
-        padding: 2.5rem 0;
+        padding: 1.5rem;
     }
 
     .command-card code {
         font-size: 0.95rem;
-    }
-
-    .command-card .code-container {
-        width: 100%;
-        padding: 0.75rem 1rem;
     }
 }
 
@@ -263,14 +387,14 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: var(--accent-border);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #999;
+    background: var(--text-secondary);
 }

@@ -14,15 +14,48 @@
 <body>
     <main class="container">
         <header class="header">
-            <h1 class="fade-in">Git Commands</h1>
-            <p class="subtitle fade-in">A curated list of essential git workflows.</p>
-            <div class="search-container fade-in">
-                <input type="text" id="search-input" placeholder="Search commands or descriptions..."
-                    autocomplete="off">
+            <h1 class="fade-in">Git & GitHub Guide</h1>
+            <p class="subtitle fade-in">A beginner-friendly cheat sheet for mastering version control.</p>
+
+            <div class="intro-section fade-in">
+                <div class="intro-card">
+                    <h3>What is Git?</h3>
+                    <p>Git is a version control system that tracks changes in your files. It allows you to revert to
+                        previous versions and work with others without overwriting their code.</p>
+                </div>
+                <div class="intro-card">
+                    <h3>What is GitHub?</h3>
+                    <p>GitHub is a cloud-based platform that hosts Git repositories. It makes it easy to share code,
+                        collaborate on projects, and keep a backup of your work online.</p>
+                </div>
+            </div>
+
+            <div class="search-actions fade-in">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search commands..." autocomplete="off">
+                </div>
+                <button id="download-btn" class="secondary-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" width="18" height="18">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download PDF
+                </button>
             </div>
         </header>
+
         <section id="commands-list" class="commands-grid"></section>
+
+        <footer class="footer fade-in">
+            <div class="footer-content">
+                <p>Developed by 🧑🏼‍💻 <a href="http://nayanssunil.is-a.dev/" target="_blank">Nayan</a></p>
+                <button id="theme-toggle" title="Switch Theme"></button>
+            </div>
+        </footer>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 

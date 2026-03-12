@@ -57,18 +57,54 @@ h1 {
     color: var(--text-secondary);
     font-weight: 400;
     letter-spacing: 0.1px;
+    margin-bottom: 2.5rem;
+}
+
+.search-container {
+    width: 100%;
+}
+
+#search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid var(--accent-border);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--text-primary);
+    transition: all var(--transition-speed) ease;
+    outline: none;
+}
+
+#search-input:focus {
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+#search-input::placeholder {
+    color: #bbb;
 }
 
 .commands-grid {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 1.5rem;
+}
+
+.no-results {
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
 .command-card {
-    background: transparent;
-    border-bottom: 1px solid var(--accent-border);
-    padding: 3rem 0;
+    background: #fff;
+    border: 1px solid var(--accent-border);
+    padding: 2rem;
+    border-radius: 12px;
     transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     transform: translateY(20px);
@@ -80,14 +116,16 @@ h1 {
 }
 
 .command-card:hover {
-    border-bottom-color: #24292e;
+    border-color: #24292e;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .command-card p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #444;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     letter-spacing: -0.2px;
 }
 
@@ -96,16 +134,63 @@ h1 {
     padding: 1rem 1.25rem;
     border-radius: 8px;
     border: 1px solid #f0f0f0;
-    display: block;
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    transition: border-color var(--transition-speed);
+}
+
+.command-card .code-container:hover {
+    border-color: #ddd;
 }
 
 .command-card code {
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     font-size: 1.05rem;
     font-weight: 500;
-    white-space: pre-wrap;
-    word-break: break-all;
+    white-space: nowrap;
+    overflow-x: auto;
+    flex: 1;
+    min-width: 0;
+    padding-right: 1rem;
+}
+
+.command-card code::-webkit-scrollbar {
+    height: 0px;
+    display: none;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    opacity: 0.4;
+}
+
+.copy-btn:hover {
+    background: #eee;
+    color: #000;
+    opacity: 1;
+}
+
+.copy-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.copy-btn.copied {
+    color: var(--color-flag);
+    opacity: 1;
 }
 
 .t-git {

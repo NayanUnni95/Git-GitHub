@@ -1,0 +1,108 @@
+{
+  "git_commands": [
+    {
+      "command": "git init",
+      "description": "Initialize a new Git repository in the current directory."
+    },
+    {
+      "command": "git config --global user.name \"Your Name\"",
+      "description": "Set the global Git username used for all repositories."
+    },
+    {
+      "command": "git config --global user.email \"your@email.com\"",
+      "description": "Set the global Git email used for commits."
+    },
+    {
+      "command": "git config user.name \"Your Name\"",
+      "description": "Set the Git username only for the current repository."
+    },
+    {
+      "command": "git config user.email \"your@email.com\"",
+      "description": "Set the Git email only for the current repository."
+    },
+    {
+      "command": "git add .",
+      "description": "Stage all new and modified files for the next commit."
+    },
+    {
+      "command": "git add <file-name>",
+      "description": "Stage a specific file for the next commit."
+    },
+    {
+      "command": "git restore .",
+      "description": "Discard all unstaged changes in the working directory."
+    },
+    {
+      "command": "git restore <file-name>",
+      "description": "Discard changes in a specific file."
+    },
+    {
+      "command": "git status",
+      "description": "Show the current state of the working directory and staging area."
+    },
+    {
+      "command": "git commit -m \"<message>\"",
+      "description": "Create a commit from staged changes with a message."
+    },
+    {
+      "command": "git commit -am \"<message>\"",
+      "description": "Stage all modified tracked files and commit them in one command."
+    },
+    {
+      "command": "git log",
+      "description": "Display the full commit history."
+    },
+    {
+      "command": "git log --all",
+      "description": "Show commit history from all branches."
+    },
+    {
+      "command": "git log --graph --all",
+      "description": "Display commit history with a visual graph of branches."
+    },
+    {
+      "command": "git log --oneline",
+      "description": "Show commit history in a compact single-line format."
+    },
+    {
+      "command": "git checkout <commit-hash>",
+      "description": "Switch to a specific commit (detached HEAD state)."
+    },
+    {
+      "command": "git branch <branch-name>",
+      "description": "Create a new branch."
+    },
+    {
+      "command": "git checkout <branch-name>",
+      "description": "Switch to an existing branch."
+    },
+    {
+      "command": "git switch <branch-name>",
+      "description": "Modern command to switch branches."
+    },
+    {
+      "command": "git merge <branch-name>",
+      "description": "Merge the specified branch into the current branch."
+    },
+    {
+      "command": "git branch -d <branch-name>",
+      "description": "Delete a local branch after it has been merged."
+    },
+    {
+      "command": "git remote add <remote-name> <remote-url>",
+      "description": "Add a remote repository to the local project."
+    },
+    {
+      "command": "git push <remote-name> <branch-name>",
+      "description": "Push local commits to a remote repository."
+    },
+    {
+      "command": "git clone <remote-url>",
+      "description": "Download a remote repository to your local machine."
+    },
+    {
+      "command": "git pull <remote-name> <branch-name>",
+      "description": "Fetch and merge the latest changes from a remote repository."
+    }
+  ]
+}

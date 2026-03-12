@@ -1,0 +1,191 @@
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #24292e;
+    --text-secondary: #586069;
+    --accent-border: #eaecef;
+    --hover-bg: #f6f8fa;
+    --code-bg: #f9f9f9;
+
+    --color-git: #d73a49;
+    --color-command: #005cc5;
+    --color-flag: #22863a;
+    --color-placeholder: #e36209;
+    --color-string: #6f42c1;
+    --color-param: #032f62;
+
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+.header {
+    margin-bottom: 6rem;
+    text-align: left;
+}
+
+h1 {
+    font-size: 3.25rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    color: #1a1f23;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.1px;
+}
+
+.commands-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.command-card {
+    background: transparent;
+    border-bottom: 1px solid var(--accent-border);
+    padding: 3rem 0;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.command-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.command-card:hover {
+    border-bottom-color: #24292e;
+}
+
+.command-card p {
+    font-size: 1.1rem;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.2px;
+}
+
+.command-card .code-container {
+    background: var(--code-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    display: block;
+    width: fit-content;
+}
+
+.command-card code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 1.05rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.t-git {
+    color: var(--color-git);
+    font-weight: 600;
+}
+
+.t-cmd {
+    color: var(--color-command);
+    font-weight: 500;
+}
+
+.t-flag {
+    color: var(--color-flag);
+}
+
+.t-placeholder {
+    color: var(--color-placeholder);
+}
+
+.t-string {
+    color: var(--color-string);
+}
+
+.t-param {
+    color: var(--color-param);
+}
+
+.fade-in {
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .command-card {
+        padding: 2.5rem 0;
+    }
+
+    .command-card code {
+        font-size: 0.95rem;
+    }
+
+    .command-card .code-container {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
